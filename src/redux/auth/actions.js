@@ -20,12 +20,56 @@ export function Login(email) {
           type: AUTH_CONSTANSTS.AUTH_SUCCESS,
           payload: { userMetaData, Token },
         });
+      return true
       }
+
+
     } catch (error) {
       dispatch({
         type: AUTH_CONSTANSTS.AUTH_ERROR,
         payload: error,
       });
+      return false;
     }
   };
 }
+
+export const Logout = () => async (dispatch) => {
+  dispatch({ type: AUTH_CONSTANSTS.AUTH_LOADING });
+
+  try {
+    const res = await magic.user.logout();
+    if (res) {
+      localStorage.clear();
+      dispatch({
+        type: AUTH_CONSTANSTS.CLEAR,
+      });
+    }
+    return true;
+  } catch (error) {
+    dispatch({
+      type: AUTH_CONSTANSTS.AUTH_ERROR,
+      payload: error,
+    });
+    return false;
+  }
+};
+
+export const validateToken = () => async (dispatch) => {
+  dispatch({
+    type: AUTH_CONSTANSTS.AUTH_LOADING,
+  });
+
+  try {
+    const res = await magic.user.getIdToken();
+    if (res) {
+      dispatch({ type: AUTH_CONSTANSTS.RESET_LOADING });
+    }
+    return true;
+  } 
+  catch (error) {
+    localStorage.clear();
+    dispatch({ type: AUTH_CONSTANSTS.CLEAR });
+    return false;
+  }
+};

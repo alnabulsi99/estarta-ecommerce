@@ -26,7 +26,23 @@ nav {
 }
 
 .logo {
-  color: #eee;
+  color: rgb(0, 0, 0);
   font-family: "Fredoka One", sans-serif;
   font-weight: 400;
+}
+.logoutIcon {
+  position: relative;
+  cursor: pointer;
+}
+.logoutBox {
+  position: absolute;
+  right: -4px;
+  background: #0062cc;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 13px;
+}
+.logoutText:hover {
+text-decoration: underline;
 }

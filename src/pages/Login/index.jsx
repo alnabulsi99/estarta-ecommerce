@@ -12,7 +12,11 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
 
   function handleLogin() {
-    dispatch(Login(email));
+    dispatch(Login(email)).then(res=>{ 
+      if(res){
+        navigate("/poducts");
+      }
+    })
   }
 
   useEffect(() => {
