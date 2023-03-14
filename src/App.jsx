@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-route
 // components
 import Navbar from "./components/Navbar";
 import ProtecedRoute from "./components/protectedRoute";
+import Spinner from "./components/Spinner";
 // Pages
 const Home = lazy(() => import("./pages/home/homePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -16,14 +17,14 @@ const Products = lazy(() => import("./pages/products"));
 function App() {
   const nav = useNavigate()
   const { loading,isAuth } = useSelector((state) => state.authReducer);
-  //  if(loading){
-  //   return <Spinner />
-  //  }
-const dispatch=useDispatch()
-useEffect(() => {
-  dispatch(validateToken()).then((res)=>{
-    if (!res) nav("/");  })
-}, [isAuth])
+  const dispatch=useDispatch()
+  useEffect(() => {
+    dispatch(validateToken()).then((res)=>{
+      if (!res) nav("/");  })
+    }, [isAuth])
+     if(loading){
+      return <Spinner/>
+     }
 
 
   return (

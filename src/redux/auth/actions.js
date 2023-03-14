@@ -61,10 +61,9 @@ export const validateToken = () => async (dispatch) => {
   });
 
   try {
-    const res = await magic.user.getIdToken();
-    if (res) {
+     await magic.user.getIdToken();
       dispatch({ type: AUTH_CONSTANSTS.RESET_LOADING });
-    }
+    
     return true;
   } 
   catch (error) {
