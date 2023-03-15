@@ -1,3 +1,5 @@
+// Styles
+import styles from "./styles.module.css";
 // React
 import { useEffect, useState } from "react";
 // React Router Dom
@@ -10,8 +12,6 @@ import { BsArrowRightShort } from "react-icons/bs";
 import { BiUserCircle } from "react-icons/bi";
 import { TbShoppingCart } from "react-icons/tb";
 
-// Styles
-import styles from "./styles.module.css";
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -32,6 +32,7 @@ export default function Navbar() {
       <Link to="/" className={styles.logo}>
         Estarta E-commerce
       </Link>
+      
       {!isAuth && (
         <div>
           <Link to="/login">
@@ -61,7 +62,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <TbShoppingCart/>
     </nav>
   );
 }
