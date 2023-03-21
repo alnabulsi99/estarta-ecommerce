@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/protectedRoute";
 import Spinner from "./components/Spinner";
 // Pages
-const Home = lazy(() => import("./pages/home/HomePage"));
+const Home = lazy(() => import("./pages/home/homePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
 const Products = lazy(() => import("./pages/products"));
