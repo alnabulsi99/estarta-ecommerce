@@ -14,7 +14,7 @@ export default function LoginPage() {
   function handleLogin() {
     dispatch(Login(email)).then(res=>{ 
       if(res){
-        navigate("/poducts");
+        navigate("/products");
       }
     })
   }
