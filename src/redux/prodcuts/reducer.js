@@ -7,7 +7,7 @@ const initState = {
 };
 function productsReducer(state = initState, action) {
   switch (action.type) {
-    case PRODUCTS_CONSTANTS.PRODUCTS_LOAD:
+    case PRODUCTS_CONSTANTS.PRODUCTS_LOADING:
       return {
         ...state,
         loading: true,
@@ -18,7 +18,7 @@ function productsReducer(state = initState, action) {
         error: action.payload,
         loading: false,
       };
-    case PRODUCTS_CONSTANTS.FETCH_SUCCESS:
+    case PRODUCTS_CONSTANTS.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
         loading: false,

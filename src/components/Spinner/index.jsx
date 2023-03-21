@@ -1,10 +1,14 @@
-import { PacmanLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 import styles from "./styles.module.css";
 
 export default function Spinner() {
   return (
     <div className={styles.SpinnerContainer}>
-      <PacmanLoader color="rgba(244, 255, 0, 1)" size={50} />
+     
+<RingLoader
+  color="#007bff"
+  size={100}
+/>
     </div>
   );
 }

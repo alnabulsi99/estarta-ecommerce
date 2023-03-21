@@ -6,13 +6,14 @@ import { validateToken } from "./redux/auth/actions";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 // components
 import Navbar from "./components/Navbar";
-import ProtecedRoute from "./components/protectedRoute";
+import ProtectedRoute from "./components/protectedRoute";
 import Spinner from "./components/Spinner";
 // Pages
-const Home = lazy(() => import("./pages/home/homePage"));
+const Home = lazy(() => import("./pages/home/HomePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
 const Products = lazy(() => import("./pages/products"));
+const Cart = lazy(() => import("./pages/cart"));
 
 function App() {
   const nav = useNavigate()
@@ -33,11 +34,12 @@ function App() {
        
           <Navbar />
           <Routes>
-            <Route index element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
             <Route
               path="/Products"
-              element={<ProtecedRoute element={<Products />} />}
+              element={<ProtectedRoute element={<Products />} />}
             />
             <Route path="*" element={<NotFound />} />
           </Routes>
